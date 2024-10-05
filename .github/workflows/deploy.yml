@@ -17,9 +17,9 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets:HOST }}
-          username: ${{ secrets:USER }}
-          key: ${{ secrets:SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "."
           target: "/home/ubuntu/banksite-with-jest"
@@ -27,9 +27,9 @@ jobs:
       - name: Run Docker on EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets:HOST }}
-          username: ${{ secrets:USER }}
-          key: ${{ secrets:SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
             cd /home/ubuntu/banksite-with-jest
